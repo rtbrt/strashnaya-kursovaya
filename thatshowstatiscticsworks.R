@@ -10,7 +10,8 @@ results=data.frame(
   p_sto=sd(x),
   p_asim=mean((x-mean(x))^3)/(sd(x)^3),
   p_ex=mean((x-mean(x))^4)/(sd(x)^4)-3,
-  p_med=median(x)
+  p_med=median(x),
+  p_mod=density(x)$x[which.max(density(x)$y)]
 )
 write.csv(results, file="results.csv")
 png(file="pic1.png")
